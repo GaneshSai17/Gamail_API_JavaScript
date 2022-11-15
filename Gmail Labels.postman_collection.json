@@ -1,0 +1,1367 @@
+{
+	"info": {
+		"_postman_id": "8a3562d7-0d45-4805-95cb-a83b0288a601",
+		"name": "Gmail Labels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17788149"
+	},
+	"item": [
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonresponse =pm.response.json();\r",
+							"const accesstoken=jsonresponse.access_token;\r",
+							"console.log(accesstoken);\r",
+							"\r",
+							"pm.environment.set(\"accesstoken\",accesstoken)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "357326687514-4o9gm9qqg29kte3bp0bpp3ll8b607i3k.apps.googleusercontent.com",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "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",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "1//0g-XFPDCsxf9GCgYIARAAGBASNwF-L9IrThehhzIbPc1Er9CZct1keN2LlRzfqBnte4gHbmCWzfEXUJcfmQhDWj0LQKbjwvqpj_0",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://accounts.google.com/o/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"accounts",
+						"google",
+						"com"
+					],
+					"path": [
+						"o",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Access Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "357326687514-4o9gm9qqg29kte3bp0bpp3ll8b607i3k.apps.googleusercontent.com",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "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",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "1//0g-XFPDCsxf9GCgYIARAAGBASNwF-L9IrThehhzIbPc1Er9CZct1keN2LlRzfqBnte4gHbmCWzfEXUJcfmQhDWj0LQKbjwvqpj_0",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://accounts.google.com/o/oauth2/token",
+							"protocol": "https",
+							"host": [
+								"accounts",
+								"google",
+								"com"
+							],
+							"path": [
+								"o",
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Expires",
+							"value": "Mon, 01 Jan 1990 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 16 Nov 2021 08:17:45 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Server",
+							"value": "scaffolding on HTTPServer2"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"ya29.a0ARrdaM8iw3B_J_jk6RynFA8rJzWbsZXzX7O0HZWOoB_2bLiMbj4nf4PTO60KdURC-mTqKIdJbFoJiWe6R0eMn34Q4KLvpXJRyBhEtAwQ1vQZOJeaz-zvR9I7rWJGxRQagcgq8j1xqPhDEvL7g1rG-i160gCB\",\n    \"expires_in\": 3599,\n    \"scope\": \"https://mail.google.com/ https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/userinfo.profile\",\n    \"token_type\": \"Bearer\",\n    \"id_token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6IjAzMmIyZWYzZDJjMjgwNjE1N2Y4YTliOWY0ZWY3Nzk4MzRmODVhZGEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiMzU3MzI2Njg3NTE0LTRvOWdtOXFxZzI5a3RlM2JwMGJwcDNsbDhiNjA3aTNrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiMzU3MzI2Njg3NTE0LTRvOWdtOXFxZzI5a3RlM2JwMGJwcDNsbDhiNjA3aTNrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTEyODMyMTQ2OTg3Mjc3NDQ5MTEzIiwiYXRfaGFzaCI6Im5id1B0QmhvVm1HRGg1WFhIbDc1dUEiLCJpYXQiOjE2MzcwNTA2NjUsImV4cCI6MTYzNzA1NDI2NX0.NHDJPN28ar1seRqhWJRYVUwleanNLZFV6TbBAzGA2oDbIRFuPHmL5Ew7QqFLRHod74gc1KMpwB4BVcZS4ZTIqWKUqiGFEJYpqENb00CfFlYRNgQAGq1KSruGvC7piDvSsLp7aMILYo3j36zAt9tkGuGJ1dSBzfHc3E9lN7KbhADpp9B3OPydxae8zzI4cJPlJfGC6iko4jJKbof0y32saMcxkTMt5KE3c5DOfDgVZg0gKiWh1aPB--qAaUm13_P_gjb7XxF0oMM_fLmYZfw4CHqhzttciTry9RVE0y-u1_jYr9qmek-QVEfse2Mbix8YOzzbmWLmI_DApcgN3XP4lA\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Initial Label Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json()",
+							"pm.test(`Testing successful response`, function() {",
+							"            pm.response.to.have.status(200)",
+							"            pm.expect(response).not.empty;",
+							"            pm.expect(response).not.null;",
+							"            pm.expect(response.labels).instanceOf(Array)",
+							"",
+							"            //Setting variable to collection",
+							"            pm.collectionVariables.set(\"initialLabelSize\", response.labels.length)",
+							"            console.log(pm.collectionVariables.get(\"initialLabelSize\"))",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"labels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Initial Label Count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"labels"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 03:09:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"labels\": [\n        {\n            \"id\": \"CHAT\",\n            \"name\": \"CHAT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"SENT\",\n            \"name\": \"SENT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"INBOX\",\n            \"name\": \"INBOX\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"IMPORTANT\",\n            \"name\": \"IMPORTANT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"TRASH\",\n            \"name\": \"TRASH\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelHide\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"DRAFT\",\n            \"name\": \"DRAFT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"SPAM\",\n            \"name\": \"SPAM\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelHide\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_FORUMS\",\n            \"name\": \"CATEGORY_FORUMS\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_UPDATES\",\n            \"name\": \"CATEGORY_UPDATES\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_PERSONAL\",\n            \"name\": \"CATEGORY_PERSONAL\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_PROMOTIONS\",\n            \"name\": \"CATEGORY_PROMOTIONS\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_SOCIAL\",\n            \"name\": \"CATEGORY_SOCIAL\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"STARRED\",\n            \"name\": \"STARRED\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"UNREAD\",\n            \"name\": \"UNREAD\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"Label_1\",\n            \"name\": \"Personal\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_2\",\n            \"name\": \"Receipts\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_34\",\n            \"name\": \"Test_Label_104\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_4\",\n            \"name\": \"Work\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelHide\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_40\",\n            \"name\": \"Test_Label_77-changed\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_46\",\n            \"name\": \"Test_Label_695\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_5\",\n            \"name\": \"Real Estate\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_55\",\n            \"name\": \"Test_Label_333-changed\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_6\",\n            \"name\": \"Work/Icici Bank\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_7\",\n            \"name\": \"Jobs\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_8\",\n            \"name\": \"Boxbe Waiting List\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_9\",\n            \"name\": \"Notes\",\n            \"type\": \"user\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Label",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const val = pm.variables.replaceIn('{{$randomInt}}');",
+							"console.log(val)",
+							"const labelName = `Test_Label_${val}`;",
+							"",
+							"pm.collectionVariables.set(\"labelName\", labelName);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json()",
+							"let labelName = pm.collectionVariables.get(\"labelName\")",
+							"pm.test(`Testing label creation`, function() {",
+							"            pm.response.to.have.status(200)",
+							"            pm.expect(response).not.empty;",
+							"            pm.expect(response).not.null;",
+							"            pm.expect(response.name).equals(labelName)",
+							"            pm.expect(response.id).not.null",
+							"});",
+							"",
+							"pm.collectionVariables.set(\"labelId\", response.id)",
+							"console.log(\"Testing label creation labelID=\"+ response.id);",
+							"pm.environment.set(\"id\", response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{labelName}}\",\n    \"labelListVisibility\": \"labelShow\",\n    \"messageListVisibility\": \"show\",\n    \"type\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"labels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Label",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{labelName}}\",\n    \"labelListVisibility\": \"labelShow\",\n    \"messageListVisibility\": \"show\",\n    \"type\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"labels"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 03:10:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"Label_56\",\n    \"name\": \"Test_Label_927\",\n    \"messageListVisibility\": \"show\",\n    \"labelListVisibility\": \"labelShow\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Count After Creation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json()",
+							"pm.test(`Testing successful response and comparing increment of lables count by 1`, function() {",
+							"            pm.response.to.have.status(200)",
+							"            pm.expect(response).not.empty;",
+							"            pm.expect(response).not.null;",
+							"            pm.expect(response.labels).instanceOf(Array)",
+							"            pm.expect(pm.collectionVariables.get(\"initialLabelSize\")+1).equals(response.labels.length)",
+							"            console.log(\"labels after creation \"+response.labels.length)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"labels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Label Count After Creation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"labels"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 03:10:14 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"labels\": [\n        {\n            \"id\": \"CHAT\",\n            \"name\": \"CHAT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"SENT\",\n            \"name\": \"SENT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"INBOX\",\n            \"name\": \"INBOX\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"IMPORTANT\",\n            \"name\": \"IMPORTANT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"TRASH\",\n            \"name\": \"TRASH\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelHide\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"DRAFT\",\n            \"name\": \"DRAFT\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"SPAM\",\n            \"name\": \"SPAM\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelHide\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_FORUMS\",\n            \"name\": \"CATEGORY_FORUMS\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_UPDATES\",\n            \"name\": \"CATEGORY_UPDATES\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_PERSONAL\",\n            \"name\": \"CATEGORY_PERSONAL\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_PROMOTIONS\",\n            \"name\": \"CATEGORY_PROMOTIONS\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"CATEGORY_SOCIAL\",\n            \"name\": \"CATEGORY_SOCIAL\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"STARRED\",\n            \"name\": \"STARRED\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"UNREAD\",\n            \"name\": \"UNREAD\",\n            \"type\": \"system\"\n        },\n        {\n            \"id\": \"Label_1\",\n            \"name\": \"Personal\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_2\",\n            \"name\": \"Receipts\",\n            \"messageListVisibility\": \"hide\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_34\",\n            \"name\": \"Test_Label_104\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_4\",\n            \"name\": \"Work\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelHide\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_40\",\n            \"name\": \"Test_Label_77-changed\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_46\",\n            \"name\": \"Test_Label_695\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_5\",\n            \"name\": \"Real Estate\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_55\",\n            \"name\": \"Test_Label_333-changed\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_56\",\n            \"name\": \"Test_Label_927\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_6\",\n            \"name\": \"Work/Icici Bank\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_7\",\n            \"name\": \"Jobs\",\n            \"messageListVisibility\": \"show\",\n            \"labelListVisibility\": \"labelShow\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_8\",\n            \"name\": \"Boxbe Waiting List\",\n            \"type\": \"user\"\n        },\n        {\n            \"id\": \"Label_9\",\n            \"name\": \"Notes\",\n            \"type\": \"user\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get message from inbox to move to specified label",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json() //undefined, null, false",
+							"console.log(response);",
+							"if(!response || response.messages.length===0){",
+							"   console.log(\"No messages in Inbox, add some emails to your gmail inbox\"); ",
+							"}",
+							"pm.test(\"Check if mail exists in inbox, to move to labels\", function(){",
+							"    pm.expect(!response || response.messages.length===0).to.be.false",
+							"});",
+							"pm.environment.set(\"messageId\", response.messages[0].id);",
+							"",
+							"console.log(\"MessageId created \"+response.messages[0].id)",
+							"console.log(\"MessageId from environment \"+pm.environment.get(\"messageId\"))",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/messages?labelIds=INBOX",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "labelIds",
+							"value": "INBOX"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get message from inbox to move to specified label",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/messages?labelIds=INBOX",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"messages"
+							],
+							"query": [
+								{
+									"key": "labelIds",
+									"value": "INBOX"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 03:10:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"messages\": [\n        {\n            \"id\": \"17d30efc9513a62f\",\n            \"threadId\": \"17d30efc9513a62f\"\n        },\n        {\n            \"id\": \"17d30a37f3d727ed\",\n            \"threadId\": \"17d30a37f3d727ed\"\n        },\n        {\n            \"id\": \"17d3096b6c70f591\",\n            \"threadId\": \"17d3096b6c70f591\"\n        },\n        {\n            \"id\": \"17d3046e506e73f5\",\n            \"threadId\": \"17d3046e506e73f5\"\n        },\n        {\n            \"id\": \"17d300285707e6ce\",\n            \"threadId\": \"17d300285707e6ce\"\n        },\n        {\n            \"id\": \"17d2fecee15c51d8\",\n            \"threadId\": \"17d2fecee15c51d8\"\n        },\n        {\n            \"id\": \"17d2f9eaf3f83a72\",\n            \"threadId\": \"17d2f9eaf3f83a72\"\n        },\n        {\n            \"id\": \"17d2f3ffd7910924\",\n            \"threadId\": \"17d2f3ffd7910924\"\n        },\n        {\n            \"id\": \"17d2f37e5898ff39\",\n            \"threadId\": \"17d2f37e5898ff39\"\n        },\n        {\n            \"id\": \"17d2eb9e399bda50\",\n            \"threadId\": \"17d2eb9e399bda50\"\n        },\n        {\n            \"id\": \"17d2eadc30117f78\",\n            \"threadId\": \"17d2eadc30117f78\"\n        },\n        {\n            \"id\": \"17d2ea73c4e6ce61\",\n            \"threadId\": \"17d2ea73c4e6ce61\"\n        },\n        {\n            \"id\": \"17d2e946735e182b\",\n            \"threadId\": \"17d2e946735e182b\"\n        },\n        {\n            \"id\": \"17d2e90d3879f86e\",\n            \"threadId\": \"17d2e90d3879f86e\"\n        },\n        {\n            \"id\": \"17d2e7b4ccd65c30\",\n            \"threadId\": \"17d2e7b4ccd65c30\"\n        },\n        {\n            \"id\": \"17d2e7ad6dbe7547\",\n            \"threadId\": \"17d2e7ad6dbe7547\"\n        },\n        {\n            \"id\": \"17d2e6de78a0eb80\",\n            \"threadId\": \"17d2e6de78a0eb80\"\n        },\n        {\n            \"id\": \"17d2e5fdb09d7a79\",\n            \"threadId\": \"17d2dcf0c3938d3b\"\n        },\n        {\n            \"id\": \"17d2e559d1f9bbba\",\n            \"threadId\": \"17d2e559d1f9bbba\"\n        },\n        {\n            \"id\": \"17d2e2e3e620acd5\",\n            \"threadId\": \"17d2e2e3e620acd5\"\n        },\n        {\n            \"id\": \"17d2e1055af06472\",\n            \"threadId\": \"17d2e1055af06472\"\n        },\n        {\n            \"id\": \"17d2e09a6dd11d93\",\n            \"threadId\": \"17d2e09a6dd11d93\"\n        },\n        {\n            \"id\": \"17d2e03a74cb5e92\",\n            \"threadId\": \"17d2e03a74cb5e92\"\n        },\n        {\n            \"id\": \"17d2dee89dba8734\",\n            \"threadId\": \"17d2dee89dba8734\"\n        },\n        {\n            \"id\": \"17d2ddab42ee1afd\",\n            \"threadId\": \"17d2ddab42ee1afd\"\n        },\n        {\n            \"id\": \"17d2dcfa9b0ba402\",\n            \"threadId\": \"17d2dcfa9b0ba402\"\n        },\n        {\n            \"id\": \"17d2dcf0c3938d3b\",\n            \"threadId\": \"17d2dcf0c3938d3b\"\n        },\n        {\n            \"id\": \"17d2d89e53e16985\",\n            \"threadId\": \"17d2d89e53e16985\"\n        },\n        {\n            \"id\": \"17d2d4ad72937031\",\n            \"threadId\": \"17d2d4ad72937031\"\n        },\n        {\n            \"id\": \"17d2d3f408544d68\",\n            \"threadId\": \"17d2d3f408544d68\"\n        },\n        {\n            \"id\": \"17d2d317c76219ee\",\n            \"threadId\": \"17d2d317c76219ee\"\n        },\n        {\n            \"id\": \"17d2d1579a7a80b8\",\n            \"threadId\": \"17d2d1579a7a80b8\"\n        },\n        {\n            \"id\": \"17d2cdf1ed76ab06\",\n            \"threadId\": \"17d2cdf1ed76ab06\"\n        },\n        {\n            \"id\": \"17d2cde5604e31b3\",\n            \"threadId\": \"17d2cde5604e31b3\"\n        },\n        {\n            \"id\": \"17d2cd48a74c7a79\",\n            \"threadId\": \"17d2cd48a74c7a79\"\n        },\n        {\n            \"id\": \"17d2caf21e270c88\",\n            \"threadId\": \"17d2caf21e270c88\"\n        },\n        {\n            \"id\": \"17d2ca315e22b330\",\n            \"threadId\": \"17d2ca315e22b330\"\n        },\n        {\n            \"id\": \"17d2ca1702b8f904\",\n            \"threadId\": \"17d2ca1702b8f904\"\n        },\n        {\n            \"id\": \"17d2c9a98dc1d7d9\",\n            \"threadId\": \"17d2c9a98dc1d7d9\"\n        },\n        {\n            \"id\": \"17d2c7ec66a223bb\",\n            \"threadId\": \"17d2c7ec66a223bb\"\n        },\n        {\n            \"id\": \"17d29da9156666f0\",\n            \"threadId\": \"17d29da9156666f0\"\n        },\n        {\n            \"id\": \"17d29c231c1f5da1\",\n            \"threadId\": \"17d29c231c1f5da1\"\n        },\n        {\n            \"id\": \"17d29c2069394893\",\n            \"threadId\": \"17d29c2069394893\"\n        },\n        {\n            \"id\": \"17d29bf4a5f0ef91\",\n            \"threadId\": \"17d293157ae23f65\"\n        },\n        {\n            \"id\": \"17d29adf97ea628d\",\n            \"threadId\": \"17d29adf97ea628d\"\n        },\n        {\n            \"id\": \"17d299aaf2950fbe\",\n            \"threadId\": \"17d299aaf2950fbe\"\n        },\n        {\n            \"id\": \"17d2989c24cc1778\",\n            \"threadId\": \"17d2989c24cc1778\"\n        },\n        {\n            \"id\": \"17d2957e2ca768b2\",\n            \"threadId\": \"17d2957e2ca768b2\"\n        },\n        {\n            \"id\": \"17d293157ae23f65\",\n            \"threadId\": \"17d293157ae23f65\"\n        },\n        {\n            \"id\": \"17d292f159d7d5e5\",\n            \"threadId\": \"17d292f159d7d5e5\"\n        },\n        {\n            \"id\": \"17d2924a25f8ec67\",\n            \"threadId\": \"17d2924a25f8ec67\"\n        },\n        {\n            \"id\": \"17d2922fd5b8f6f0\",\n            \"threadId\": \"17d2922fd5b8f6f0\"\n        },\n        {\n            \"id\": \"17d29080619fe1e5\",\n            \"threadId\": \"17d29080619fe1e5\"\n        },\n        {\n            \"id\": \"17d290252eb27a2f\",\n            \"threadId\": \"17d290252eb27a2f\"\n        },\n        {\n            \"id\": \"17d29024e32c630d\",\n            \"threadId\": \"17d29024e32c630d\"\n        },\n        {\n            \"id\": \"17d28f6fd5d222fa\",\n            \"threadId\": \"17d28f6fd5d222fa\"\n        },\n        {\n            \"id\": \"17d28edec7593994\",\n            \"threadId\": \"17d28edec7593994\"\n        },\n        {\n            \"id\": \"17d28d179e019566\",\n            \"threadId\": \"17d28d179e019566\"\n        },\n        {\n            \"id\": \"17d28598956e4ce0\",\n            \"threadId\": \"17d28598956e4ce0\"\n        },\n        {\n            \"id\": \"17d27eb0c1143f01\",\n            \"threadId\": \"17d27eb0c1143f01\"\n        },\n        {\n            \"id\": \"17d27df7e90aeee6\",\n            \"threadId\": \"17d27df7e90aeee6\"\n        },\n        {\n            \"id\": \"17d27d7bccb4ec17\",\n            \"threadId\": \"17d27d7bccb4ec17\"\n        },\n        {\n            \"id\": \"17d27d5a47ada4f0\",\n            \"threadId\": \"17d27d5a47ada4f0\"\n        },\n        {\n            \"id\": \"17d27d2eed658697\",\n            \"threadId\": \"17d27d2eed658697\"\n        },\n        {\n            \"id\": \"17d27bc623b685ea\",\n            \"threadId\": \"17d27bc623b685ea\"\n        },\n        {\n            \"id\": \"17d27b6ce5c3cf64\",\n            \"threadId\": \"17d27b6ce5c3cf64\"\n        },\n        {\n            \"id\": \"17d27b246fe2a3b6\",\n            \"threadId\": \"17d27b246fe2a3b6\"\n        },\n        {\n            \"id\": \"17d27a69cd2b54de\",\n            \"threadId\": \"17d27a25f8054c04\"\n        },\n        {\n            \"id\": \"17d27a25f8054c04\",\n            \"threadId\": \"17d27a25f8054c04\"\n        },\n        {\n            \"id\": \"17d27940b8a7efe0\",\n            \"threadId\": \"17d27940b8a7efe0\"\n        },\n        {\n            \"id\": \"17d27885e89a08ff\",\n            \"threadId\": \"17d27885e89a08ff\"\n        },\n        {\n            \"id\": \"17d2778ce9edc214\",\n            \"threadId\": \"17d2778ce9edc214\"\n        },\n        {\n            \"id\": \"17d275362e7ad8dd\",\n            \"threadId\": \"17d275362e7ad8dd\"\n        },\n        {\n            \"id\": \"17d2737660333c62\",\n            \"threadId\": \"17d2737660333c62\"\n        },\n        {\n            \"id\": \"17d2711cd6216db3\",\n            \"threadId\": \"17d2711cd6216db3\"\n        },\n        {\n            \"id\": \"17d26d49eea9e534\",\n            \"threadId\": \"17d26d49eea9e534\"\n        },\n        {\n            \"id\": \"17d26afa1510d9eb\",\n            \"threadId\": \"17d26afa1510d9eb\"\n        },\n        {\n            \"id\": \"17d268d4de2f9710\",\n            \"threadId\": \"17d268d4de2f9710\"\n        },\n        {\n            \"id\": \"17d2689da42d1bb3\",\n            \"threadId\": \"17d2689da42d1bb3\"\n        },\n        {\n            \"id\": \"17d266cb45f3ece5\",\n            \"threadId\": \"17d266cb45f3ece5\"\n        },\n        {\n            \"id\": \"17d26287bd6ce39a\",\n            \"threadId\": \"17d26287bd6ce39a\"\n        },\n        {\n            \"id\": \"17d25441a43f20eb\",\n            \"threadId\": \"17d25441a43f20eb\"\n        },\n        {\n            \"id\": \"17d252c06548dad2\",\n            \"threadId\": \"17d252c06548dad2\"\n        },\n        {\n            \"id\": \"17d2514318b466bc\",\n            \"threadId\": \"17d2514318b466bc\"\n        },\n        {\n            \"id\": \"17d24acb6f8cbc80\",\n            \"threadId\": \"17d24acb6f8cbc80\"\n        },\n        {\n            \"id\": \"17d24930f9261bf5\",\n            \"threadId\": \"17d24930f9261bf5\"\n        },\n        {\n            \"id\": \"17d247f425f2bc2e\",\n            \"threadId\": \"17d247f425f2bc2e\"\n        },\n        {\n            \"id\": \"17d24575e7a97d19\",\n            \"threadId\": \"17d24575e7a97d19\"\n        },\n        {\n            \"id\": \"17d2449d03c5982f\",\n            \"threadId\": \"17d2449d03c5982f\"\n        },\n        {\n            \"id\": \"17d243ac4906c6c3\",\n            \"threadId\": \"17d243ac4906c6c3\"\n        },\n        {\n            \"id\": \"17d2406cada9cb6c\",\n            \"threadId\": \"17d2406cada9cb6c\"\n        },\n        {\n            \"id\": \"17d23e3e20f793d1\",\n            \"threadId\": \"17d23e3e20f793d1\"\n        },\n        {\n            \"id\": \"17d23e3b21a6523f\",\n            \"threadId\": \"17d23e3b21a6523f\"\n        },\n        {\n            \"id\": \"17d23d4b299fbf51\",\n            \"threadId\": \"17d23d4b299fbf51\"\n        },\n        {\n            \"id\": \"17d23c4fec2507fe\",\n            \"threadId\": \"17d23c4fec2507fe\"\n        },\n        {\n            \"id\": \"17d2399e75f411d0\",\n            \"threadId\": \"17d2399e75f411d0\"\n        },\n        {\n            \"id\": \"17d23830db33c0b0\",\n            \"threadId\": \"17d23830db33c0b0\"\n        },\n        {\n            \"id\": \"17d23735b691d17e\",\n            \"threadId\": \"17d23735b691d17e\"\n        },\n        {\n            \"id\": \"17d2350c787151a2\",\n            \"threadId\": \"17d2350c787151a2\"\n        },\n        {\n            \"id\": \"17d232ac28e9d4ce\",\n            \"threadId\": \"17d232ac28e9d4ce\"\n        }\n    ],\n    \"nextPageToken\": \"16385609002820264788\",\n    \"resultSizeEstimate\": 515\n}"
+				}
+			]
+		},
+		{
+			"name": "Move Mail From Inbox To CreatedLabel",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"const movedMessageId=pm.environment.get(\"messageId\")",
+							"const labelId = pm.collectionVariables.get(\"labelId\")",
+							"pm.test(`Testing successful post response`, function() {",
+							"            pm.response.to.have.status(200)",
+							"",
+							"            console.log(response);",
+							"",
+							"            pm.expect(response).not.empty;",
+							"            pm.expect(response).not.null;",
+							"            pm.expect(response.id).equals(movedMessageId)",
+							"            pm.expect(response.labelIds.length).gt(0)",
+							"            pm.expect(response.labelIds.includes(labelId)).to.be.true",
+							"           ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"addLabelIds\": [\n    \"{{labelId}}\"\n  ],\n  \"removeLabelIds\": [\n    \"INBOX\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/messages/{{messageId}}/modify",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"messages",
+						"{{messageId}}",
+						"modify"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Move Mail From Inbox To CreatedLabel",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"addLabelIds\": [\n    \"{{labelId}}\"\n  ],\n  \"removeLabelIds\": [\n    \"INBOX\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/messages/{{messageId}}/modify",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"messages",
+								"{{messageId}}",
+								"modify"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 03:10:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"17d30efc9513a62f\",\n    \"threadId\": \"17d30efc9513a62f\",\n    \"labelIds\": [\n        \"UNREAD\",\n        \"CATEGORY_SOCIAL\",\n        \"Label_56\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Updating label with new name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"const labelId = pm.collectionVariables.get(\"labelId\")",
+							"const labelName = pm.collectionVariables.get(\"labelName\")",
+							"",
+							"console.log(\"Testing successful updation\"+labelId)",
+							"pm.test(`Testing successful updation`, function() {",
+							"            pm.response.to.have.status(200)",
+							"            console.log(response);",
+							"",
+							"            pm.expect(response).not.empty;",
+							"            pm.expect(response).not.null;",
+							"            pm.expect(response.id).equals(labelId)",
+							"            pm.expect(response.name).equals(`${labelName}-changed`)",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{labelName}}-changed\",\n    \"labelListVisibility\": \"labelShow\",\n    \"messageListVisibility\": \"show\",\n    \"type\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels/{{id}}",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"labels",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Updating label with new name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{labelName}}-changed\",\n    \"labelListVisibility\": \"labelShow\",\n    \"messageListVisibility\": \"show\",\n    \"type\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels/{{id}}",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"labels",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 03:10:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"Label_56\",\n    \"name\": \"Test_Label_927-changed\",\n    \"messageListVisibility\": \"show\",\n    \"labelListVisibility\": \"labelShow\",\n    \"type\": \"user\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"const labelId = pm.collectionVariables.get(\"labelId\")\r",
+							"const color = response.color\r",
+							"const textColor = color.textColor\r",
+							"const backgroundColor = color.backgroundColor\r",
+							"console.log(color)\r",
+							"\r",
+							"pm.test(`Testing successful label Color change`, function() {\r",
+							"            pm.response.to.have.status(200)\r",
+							"            \r",
+							"            pm.expect(response).not.empty;\r",
+							"            pm.expect(response).not.null;\r",
+							"            pm.expect(response.id).equals(labelId)\r",
+							"            pm.expect(pm.collectionVariables.get(\"Text_Color\")).equals(textColor)\r",
+							"            pm.expect(pm.collectionVariables.get(\"Background_Color\")).equals(backgroundColor)\r",
+							"\r",
+							"            \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"Text_Color\", \"#434343\")\r",
+							"pm.collectionVariables.set(\"Background_Color\", \"#ac2b16\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accesstoken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{id}}\",\r\n    \"name\": \"{{labelName}}\",\r\n  \"color\": {\r\n    \"textColor\": \"{{Text_Color}}\",\r\n  \"backgroundColor\": \"{{Background_Color}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels/{{id}}",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"labels",
+						"{{id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{id}}\",\r\n    \"name\": \"{{labelName}}\",\r\n  \"color\": {\r\n    \"textColor\": \"{{Text_Color}}\",\r\n  \"backgroundColor\": \"{{Background_Color}}\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels/{{id}}",
+							"protocol": "https",
+							"host": [
+								"gmail",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"gmail",
+								"v1",
+								"users",
+								"{{userId}}",
+								"labels",
+								"{{id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "X-Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Referer"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Nov 2021 07:27:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ESF"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Alt-Svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"Label_59\",\n    \"name\": \"Test_Label_343\",\n    \"messageListVisibility\": \"show\",\n    \"labelListVisibility\": \"labelShow\",\n    \"type\": \"user\",\n    \"messagesTotal\": 0,\n    \"messagesUnread\": 0,\n    \"threadsTotal\": 0,\n    \"threadsUnread\": 0,\n    \"color\": {\n        \"textColor\": \"#434343\",\n        \"backgroundColor\": \"#ac2b16\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete label",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.body",
+							"pm.test(`Testing successful deletion`, function() {",
+							"            pm.response.to.have.status(204)",
+							"            pm.expect(response).is.undefined;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://gmail.googleapis.com/gmail/v1/users/{{userId}}/labels/{{id}}",
+					"protocol": "https",
+					"host": [
+						"gmail",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"gmail",
+						"v1",
+						"users",
+						"{{userId}}",
+						"labels",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "labelId",
+			"value": ""
+		},
+		{
+			"key": "labelName",
+			"value": ""
+		},
+		{
+			"key": "initialLabelSize",
+			"value": ""
+		},
+		{
+			"key": "Text_Color",
+			"value": ""
+		},
+		{
+			"key": "Background_Color",
+			"value": ""
+		}
+	]
+}
